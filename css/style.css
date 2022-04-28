@@ -145,6 +145,8 @@ footer {
     width: 100%;
     padding: 10px 10px;
     border-bottom: 2px solid #f0f0f5;
+    background-color: #6e6c6d;
+    color: #f0f0f5;
   }
 
   td.preco {
