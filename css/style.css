@@ -1,143 +1,214 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
 }
 
-body{
-    background-image: url('https://besthqwallpapers.com/Temp/27-4-2022/4k-gray-carbon-background-vector-textures-carbon-patterns-gray-carbon-texture-besthqwallpapers.com-1920x1080.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+body {
+  background-image: url("/img/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 body > div.container {
+  width: 100%;
+  height: 100%;
+}
+
+header {
+  color: #f0f0f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+  font-size: 1.5rem;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 79vh;
+  overflow: auto;
+  background-color: #f0f0f5;
+}
+
+main > table {
+  width: 90%;
+  max-width: 1366px;
+  border-spacing: 0 1rem;
+}
+
+main > table > thead > tr > th {
+  color: #f0f0f5;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: #6e6c6d;
+  padding: 10px 0;
+  text-transform: uppercase;
+}
+
+main > table > tbody > tr {
+  background-color: #fff;
+  transition: 0.5s ease;
+}
+
+tbody > tr:hover {
+  box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
+}
+
+td.cod {
+  font-weight: 700;
+  text-align: center;
+  width: 4rem;
+  font-size: 1.12rem;
+}
+
+td.img {
+  padding: 10px;
+}
+
+img.tamanho-imagem {
+  width: 8rem;
+  height: 6rem;
+  border-radius: 2px;
+}
+
+td.descricao {
+  padding: 2px 20px;
+  text-transform: uppercase;
+}
+
+td.preco {
+  text-align: center;
+  width: 100px;
+  font-weight: 700;
+  font-size: 1.12rem;
+}
+
+td.comprar {
+  width: 100px;
+  padding: 0 20px;
+}
+
+td.comprar > button {
+  border-radius: 5px;
+  border: 1px solid red;
+  padding: 2px 15px;
+  font-weight: 700;
+  display: flex;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  background: #f00;
+  align-items: center;
+  
+}
+
+td.comprar > button > svg {
+  margin-right: 5px;
+}
+
+.button-comprar:hover {
+  background: rgb(199, 0, 0);
+}
+
+footer {
+  height: 6vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f5f5f5;
+  font-size: 1.3rem;
+}
+
+@media screen and (max-width: 600px) {
+  header{
+    font-size: 1rem;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  td.cod {
+    text-align: end;
     width: 100%;
-    height: 100%;
-}
+    padding: 10px 10px;
+    border-bottom: 2px solid #f0f0f5;
+  }
 
-header{
-    color: #f0f0f5;
-    display: flex;
-    justify-content: center;
-    align-items: center;   
-    height: 15vh; 
-    font-size: 1.5rem;
-}
+  td.preco {
+    text-align: end;
+    width: 100%;
+    padding: 10px 10px;
+  }
 
-main{
-    display: flex;
-    justify-content: center;
-    width: 100vw;
-    height:79vh;
-    overflow: auto;
-    background-color: #f0f0f5; 
-    
-}
-
-main > table{
-   width: 90%;
-    max-width: 1366px;
-    border-spacing: 0 1rem;
-}
-
-main > table > thead > tr > th{
-    font-size: 1.5rem;
-    color: #f0f0f5;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    height: 5vh;
-    background-color: #000;
- 
-}
-
-main > table > tbody > tr{
-    background-color: #fff;
-    transition: 0.5s ease;
-}
-
-tbody > tr:hover{
-    box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.3);
-    transform: scale(1.02);
-}
-
-td.cod{
-    font-weight: 700;
+  td.img {
     text-align: center;
-    width: 4rem;
-}
+  }
 
-td.img{
-    padding: 10px;
-}
+  td.descricao {
+    padding: 10px 10px;
+    font-weight: normal;
+    border-bottom: 2px solid #f0f0f5;
+  }
 
-img.tamanho-imagem{
-    width: 8rem;
-    height: 6rem;
-    border-radius: 2px;
-}
+  td.comprar {
+    width: 100%;
+    padding: 0;
+  }
 
-td.descricao{
-    padding: 2px 10px;
-    font-weight: 700;
+  table td {
+    display: block;
+    text-align: justify;
+  }
 
-}
+  table td::before {
+    /*
+        * aria-label has no advantage, it won't be read inside a table
+        content: attr(aria-label);
+        */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
 
-td.preco{
-    text-align: center;
-    width: 100px;
-    font-weight: 700;
-}
+  table td:last-child {
+    border-bottom: 0;
+  }
 
-td.comprar{
- width: 100px;
- padding: 0 5px;
-}
+  footer {
+    font-size: 1rem;
+    width: auto;
+  }
 
-td.comprar > button{
-    border-radius: 5px;
+  table tr{
+    box-shadow: 6px 6px 6px rgba(0 0 0 / 0.3);
+  }
+
+  td.comprar > button{
+    border-radius: 0;
     border: 1px solid red;
-    padding: 2px 15px;
-    font-size: 0.75rem;
-    line-height: 1.125rem;
-    font-weight: 700;
-    font-size: 0.75rem;
-    line-height: 1.125rem;
+    padding: 8px 0;
     font-weight: 700;
     display: flex;
     justify-content: center;
     width: 100%;
     height: 100%;
     color: rgb(255, 255, 255);
-    cursor: pointer;
     background: #f00;
-    -webkit-box-align: center;
     align-items: center;
-    -webkit-box-pack: center;
-}
+  }
 
-td.comprar > button > svg{
-    margin-right: 5px;
-}
-
-.button-compra {
-   
-    
-    
-}
-
-.button-comprar:hover{
-    background: rgb(199, 0, 0);
-}
-
-footer{
-    width: 90%;
-    height: 6vh;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    color: #f5f5f5;
-    font-size: 1.3rem;
 }
