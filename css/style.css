@@ -159,6 +159,12 @@ footer {
     text-align: center;
   }
 
+  img.tamanho-imagem {
+    width: auto;
+    height: auto;
+    border-radius: 2px;
+  }
+
   td.descricao {
     padding: 10px 10px;
     font-weight: normal;
